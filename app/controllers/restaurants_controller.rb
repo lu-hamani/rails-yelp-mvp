@@ -1,6 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :delete]
-  # before_action :set_review, only: [:show]
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
   def index
     @restaurants = Restaurant.all
@@ -48,9 +47,4 @@ class RestaurantsController < ApplicationController
   def restaurant_params
     params.require(:restaurant).permit(:name, :address, :category)
   end
-
-  # def set_review
-  #   @review = Review.find(params[:id])
-  # end
-
 end

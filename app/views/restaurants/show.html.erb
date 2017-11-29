@@ -1,16 +1,30 @@
-<h1>Restaurants#show</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
-
-<ul>
-  <li>
-    <%= @restaurant.name %>
-    <%= @restaurant.address %>
-    <%= @restaurant.category %>
-    <%= @restaurant.phone_number %>
-    <%= link_to "add review", new_restaurant_review_path(@restaurant) %>
-    <%= link_to "edit restaurant", edit_restaurant_path(@restaurant) %>
-    <%= link_to "delete restaurant", restaurant_path(@restaurant), method: :delete, data: { confirm: "Are you sure ?" } %>
-  </li>
-</ul>
-
-<%= link_to "Back to index", restaurants_path %>
+<div class="container">
+  <h1 class="text-center"><%= @restaurant.name %></h1>
+</div>
+<div class="container">
+  <div class="row">
+    <ul>
+      <div class="col-xs-12 col-sm-9 col-sm-offset-3">
+        <img src="https://picsum.photos/500/300?image=1080" alt="@restaurant.name">
+        <p>Address: <%= @restaurant.address %></p>
+        <p>Specialty: <%= @restaurant.category %></p>
+        <p>Phone number: <%= @restaurant.phone_number %></p>
+        <p>Reviews:
+          <% @restaurant.reviews.each do |review| %>
+            <li>
+              <%= review.content %>
+            </li>
+          <% end %>
+        </p>
+      </div>
+      <div class="col-xs-12 col-sm-9 col-sm-offset-3">
+        <%= link_to "add a review", new_restaurant_review_path(@restaurant), class:"btn btn-success" %>
+        <%= link_to "edit restaurant", edit_restaurant_path(@restaurant), class:"btn btn-primary"%>
+        <%= link_to "delete restaurant", restaurant_path(@restaurant), method: :delete, data: { confirm: "Are you sure ?" }, class:"btn btn-danger" %>
+      </div>
+      <div class="col-xs-12 col-sm-9 col-sm-offset-3">
+        <%= link_to "Back to index", restaurants_path %>
+      </div>
+    </ul>
+  </div>
+</div>

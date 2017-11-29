@@ -1,8 +1,16 @@
 <%= simple_form_for(@restaurant) do |f| %>
+
+  <% if @restaurant.errors.any? %>
+    <ul>
+    <% @restaurant.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  <% end %>
+
   <%= f.input :name %>
   <%= f.input :address %>
   <%= f.input :category, placeholder: "chinese, italian, japanese, french, belgian" %>
   <%= f.input :phone_number %>
-  <%= f.submit class:"btn btn-danger" %>
+  <%= f.submit %>
 <% end %>
-

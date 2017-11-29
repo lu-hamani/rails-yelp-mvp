@@ -1,21 +1,25 @@
-<h1>Restaurants#index</h1>
-<p>Find me in app/views/restaurants/index.html.erb</p>
+<div class="container">
+  <h1 class="text-center">All of our restaurants!</h1>
+</div>
 
-
-<%= link_to "add restaurant", new_restaurant_path %>
-
-<% @restaurants.each do |restaurant|%>
-<ul>
-  <li>
-    <%= link_to restaurant.name, restaurant_path(restaurant) %>
-    <%= restaurant.address %>
-    <%= restaurant.category %>
-    <%= restaurant.phone_number %>
-    <%= link_to "review", new_restaurant_review_path(restaurant) %>
-  </li>
-</ul>
-<% end %>
-
-
+<div class="container">
+  <div class="row">
+    <ul>
+      <% @restaurants.each do |restaurant|%>
+      <div class="col-xs-12 col-sm-3 card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://picsum.photos/500/300?image=1080');">
+        <%= link_to restaurant.name, restaurant_path(restaurant) %>
+        <p>Address: <%= restaurant.address %></p>
+        <p>Specialty: <%= restaurant.category %></p>
+        <p>Phone number: <%= restaurant.phone_number %></p>
+      </div>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<div class="row text-center">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <%= link_to "add restaurant", new_restaurant_path, class:"btn btn-danger" %>
+    </div>
+</div>
 
 

@@ -1,0 +1,16 @@
+<h1>Admin::Restaurants#index</h1>
+<p>Find me in app/views/admin/restaurants/index.html.erb</p>
+
+<%= link_to "add restaurant", new_admin_restaurant_path %>
+
+<% @restaurants.each do |restaurant|%>
+<ul>
+  <li>
+    <%= link_to restaurant.name, admin_restaurant_path(restaurant) %>
+    <%= restaurant.address %>
+    <%= restaurant.category %>
+    <%= restaurant.phone_number %>
+    <%= link_to "review", new_admin_review_path(restaurant) %>
+  </li>
+</ul>
+<% end %>

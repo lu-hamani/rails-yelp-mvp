@@ -1,0 +1,18 @@
+<h1>Admin::Restaurants#show</h1>
+<p>Find me in app/views/admin/restaurants/show.html.erb</p>
+
+
+<ul>
+  <li>
+    <%= @restaurant.name %>
+    <%= @restaurant.address %>
+    <%= @restaurant.category %>
+    <%= @restaurant.phone_number %>
+    <%= link_to "add review", new_admin_review_path(@restaurant) %>
+    <%= link_to "edit restaurant", edit_admin_restaurant_path(@restaurant) %>
+    <%= link_to "delete restaurant", admin_restaurant_path(@restaurant), method: :delete, data: { confirm: "Are you sure ?" } %>
+  </li>
+</ul>
+
+<%= link_to "Back to index", admin_restaurants_path %>
+
