@@ -7,7 +7,6 @@
     <%= @restaurant.address %>
     <%= @restaurant.category %>
     <%= @restaurant.phone_number %>
-    <%= @review.content %>
     <%= link_to "add review", new_restaurant_review_path(@restaurant) %>
     <%= link_to "edit restaurant", edit_restaurant_path(@restaurant) %>
     <%= link_to "delete restaurant", restaurant_path(@restaurant), method: :delete, data: { confirm: "Are you sure ?" } %>
